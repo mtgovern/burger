@@ -16,14 +16,14 @@ router.get('/', function (req, res) {
 // Create New Burger
 router.post('/burger/create', function (req, res) {
     burger.insertOne(req.body.burger_name, function() {
-        res.redirect('/index');
+        res.json(true);
     });
 });
 
 // Devour Burger
 router.post('/burger/eat/:id', function (req, res) {
     burger.updateOne(req.params.id, function() {
-        res.redirect('/index');
+        res.redirect('/');
     });
 });
 
